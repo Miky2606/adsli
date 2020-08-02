@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 28, 2020 at 01:36 AM
+-- Generation Time: Aug 02, 2020 at 02:53 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -24,6 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Adslier`
+--
+
+CREATE TABLE `Adslier` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `instagram` text NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Adslier`
+--
+
+INSERT INTO `Adslier` (`id`, `id_user`, `instagram`, `fecha`) VALUES
+(18, 98, 'miky__2606', '2020-08-01 17:17:16');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Users`
 --
 
@@ -34,6 +54,7 @@ CREATE TABLE `Users` (
   `password` text NOT NULL,
   `userType` text NOT NULL,
   `userVerified` int(1) NOT NULL,
+  `perfilPic` text NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,15 +62,18 @@ CREATE TABLE `Users` (
 -- Dumping data for table `Users`
 --
 
-INSERT INTO `Users` (`id`, `user`, `email`, `password`, `userType`, `userVerified`, `fecha`) VALUES
-(3, 'pedro', 'pedro@gmail.com', 'pedro', 'adslier', 0, '2020-07-27 04:27:48'),
-(4, 'maria', 'maria@gmail.com', '$2b$10$HiLYJfwbm8FVOGp46GFDmuQLArFUrk7tMKc.A7PVAxWUxQND3AyHO', 'user', 0, '2020-07-27 10:11:35'),
-(15, 'felipe', 'felipe@gmail.com', '$2b$10$5kiJI3/RKgw4zDIaOT1ciOZBJJ/fB5q.osHSZFl5gDsZJumpzWjdi', 'user', 0, '2020-07-27 10:44:18'),
-(21, 'franco', 'jg99109@students.leeschools.net', '$2b$10$q.9Le1De1fcZ3Ka5HmnKrOmPvUlSM3WOM8RVog5uZhksRinI09bcS', 'user', 0, '2020-07-27 11:19:28');
+INSERT INTO `Users` (`id`, `user`, `email`, `password`, `userType`, `userVerified`, `perfilPic`, `fecha`) VALUES
+(98, 'Jonathan ', 'jonathanjgn99@gmail.com', '$2b$10$vvq/XTa9aby3SFaQFevAmuOeIpqFH60ahTC/wccadG8A8aXKGE8S6', 'adslier', 0, 'https://scontent-mia3-1.cdninstagram.com/v/t51.2885-19/s150x150/22709425_1839820546047344_2849992808448655360_n.jpg?_nc_ht=scontent-mia3-1.cdninstagram.com&_nc_ohc=hrGKOggCVaAAX-vh9-d&oh=bb37dd7e9aa5160061370976b7c94b17&oe=5F5079F2', '2020-08-01 17:17:16');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `Adslier`
+--
+ALTER TABLE `Adslier`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `Users`
@@ -62,10 +86,16 @@ ALTER TABLE `Users`
 --
 
 --
+-- AUTO_INCREMENT for table `Adslier`
+--
+ALTER TABLE `Adslier`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
 -- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -211,6 +211,14 @@ controlador.login = async (req,res)=>{
 
 }
 
+controlador.destroy = async (req,res)=>{
+  
+
+res.clearCookie("authorization")
+
+  res.send("yes")
+}
+
 
 
 

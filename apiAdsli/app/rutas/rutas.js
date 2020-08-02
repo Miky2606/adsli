@@ -16,5 +16,7 @@ rutas.post("/api/loggedUser", controlador.logged)
 
 rutas.get("/api/session/me",verify,controlador.session)
 
+rutas.delete("/api/loginUser",controlador.destroy)
+
 
 module.exports=rutas
