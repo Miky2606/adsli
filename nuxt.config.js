@@ -1,6 +1,10 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+
+  router: {
+    middleware: ['auth']
+  },
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
@@ -11,14 +15,6 @@ export default {
   ** See https://nuxtjs.org/api/configuration-target
   */
   target: 'server',
-
-
-  //Middleware
-
-  router:{
-    middleware:'auth'
-  },
-
 
   server: {
     port: 8100, // default: 3000
@@ -50,6 +46,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    "~/plugins/plugins.js"
   ],
   /*
   ** Auto import components
@@ -68,13 +65,16 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
     'cookie-universal-nuxt',
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    baseURL:"http://localhost:3000/api/"
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
@@ -101,5 +101,23 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+  },
+  auth: {
+    redirect:false,
+
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/loginUser', method: 'post', propertyName: 'token' },
+           user: { url: '/session/me', method: 'get', propertyName: '0' },
+
+        },
+
+         tokenType: '',
+         autoFetchUser: false
+
+      }
+    }
   }
+
 }

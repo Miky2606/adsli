@@ -1,5 +1,6 @@
 <template>
 <v-flex class="text-center">
+
    <v-card
       color="pink"
 
@@ -77,8 +78,10 @@
 <script>
 export default {
   props:["name"],
+
     data(){
         return{
+
             datos:[
                 {
                     titulo:"Precio por anuncio",

@@ -1,13 +1,28 @@
 <template>
   <v-layout>
 
-<perfilesOut
+<v-col cols="12" class="text-center"
+v-if="load"
+>
+
+ <v-progress-circular indeterminate color="grey lighten-5" v-if="load"></v-progress-circular>
+
+</v-col>
+
+
+<v-col cols="12" v-else>
+  <perfilesOut
 v-if="this.perfiles != ''"
 :name="perfiles"
 
 />
 
 <perfil404 v-else />
+</v-col>
+
+
+
+
 
 
 
@@ -21,7 +36,7 @@ v-if="this.perfiles != ''"
 import perfilesOut from "../../components/perfiles/perfilesOut"
 import perfil404 from "../../components/perfiles/perfil404"
 import axios from "axios"
-const api = require("../../components/api.js")
+
 export default {
 
   components:{
@@ -31,7 +46,8 @@ export default {
   },
   data(){
     return{
-      perfiles:this.$route.params.perfiles
+      perfiles:this.$route.params.perfiles,
+      load: true,
 
 
     }
@@ -43,12 +59,18 @@ export default {
         getUser(){
 
 
-          axios.get(api+this.perfiles)
+          this.$axios.get(this.perfiles)
           .then(res=>{
 
- console.log(res.data)
             if(res.data == ""){
                this.perfiles = res.data;
+               this.load = false
+
+            }else{
+             this.perfiles = res.data[0].user
+             console.log(this.perfiles)
+             this.load = false
+
 
             }
 
