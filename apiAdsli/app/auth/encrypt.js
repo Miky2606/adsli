@@ -7,4 +7,12 @@ encrypt.encriptar = async (password)=>{
     return hash
 }
 
+encrypt.validar = async(password,bdPassword)=>{
+
+   return await bcrypt.compare(password,bdPassword)
+
+
+
+}
+
 module.exports = encrypt
