@@ -11,13 +11,22 @@ v-if="load"
 
 
 <v-col cols="12" v-else>
+
+<PerfilesUser v-if="$auth.$state.user.user == this.perfiles" />
+
+<div v-else>
+
   <perfilesOut
+
 v-if="this.perfiles != ''"
 :name="perfiles"
 
 />
 
 <perfil404 v-else />
+
+</div>
+
 </v-col>
 
 
@@ -34,6 +43,7 @@ v-if="this.perfiles != ''"
 
 
 import perfilesOut from "../../components/perfiles/perfilesOut"
+import perfilesUser from "../../components/perfiles/perfilesUser"
 import perfil404 from "../../components/perfiles/perfil404"
 import axios from "axios"
 
@@ -42,7 +52,8 @@ export default {
   components:{
 
     perfilesOut,
-    perfil404
+    perfil404,
+    perfilesUser
   },
   data(){
     return{

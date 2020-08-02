@@ -6,14 +6,15 @@
       class="mb-5 text-center">
 
       <img
-        src="/img/iconos/cabello.png"
+        :src="this.$auth.$state.user.perfilPic"
         width="200px"
+        style="margin-top:5px"
 
         class="mb-5 rounded"
       >
 
-      <h1>Maria</h1>
-      <h3>User</h3>
+      <h1>{{this.$auth.$state.user.user}}</h1>
+      <h3>{{this.$auth.$state.user.userType}}</h3>
 
          <v-container>
              <v-row
@@ -127,6 +128,9 @@
 
     <v-divider></v-divider>
 
+    <div v-if="$auth.$state.user.userType!='adslier'">
+
+      
             <h2 style="margin-top:10px">Change Account to Adslier Account</h2>
 
 
@@ -156,6 +160,10 @@
       </v-btn>
 
                   </v-form>
+
+
+    </div>
+
 
 
                </v-col>
@@ -203,8 +211,8 @@ return{
    {
    tab:"mdi-tools",
    tools:'true',
-   avatar:"/img/iconos/cabello.png",
-   name:"maria"
+   avatar:this.$auth.$state.user.perfilPic,
+   name:this.$auth.$state.user.user
    }
 
    ],

@@ -35,7 +35,8 @@
             </v-col>
             <v-col cols="12">
                 <v-btn
-                href="http://10.0.0.114:8100/search">
+                to="/search"
+                >
                     Ver mas
                 </v-btn>
 

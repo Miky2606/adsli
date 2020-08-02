@@ -18,7 +18,7 @@ export default {
 
   server: {
     port: 8100, // default: 3000
-    host: '10.0.0.114' // default: localhost
+    host: '10.0.0.129' // default: localhost
   },
   /*
   ** Headers of the page
@@ -73,7 +73,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL:"http://localhost:3000/api/"
+    baseURL:"http://10.0.0.129:3000/api/"
   },
   /*
   ** vuetify module configuration

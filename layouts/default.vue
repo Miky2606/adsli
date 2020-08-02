@@ -15,7 +15,6 @@ v-click-outside="onClickOutside"
     <v-main>
       <v-main>
 
-<h1 v-if="$auth.loggedIn">{{$auth.$state.user.email}}</h1>
 
         <nuxt />
 
@@ -47,7 +46,7 @@ v-click-outside="onClickOutside"
 
 <script>
 
-import navigation from "../components/navigation/navDrawer"
+import navigation from "../components/navigation/navDrawer/index"
 import toolbar from "../components/navigation/toolbar"
 import dialogo from "../components/dialog/dialog"
 

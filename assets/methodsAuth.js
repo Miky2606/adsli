@@ -40,6 +40,11 @@ export default{
 
 
                                      this.$auth.loginWith('local', { data: datos })
+                                     
+                                     setInterval(() => {
+                                        location.reload()
+                                        
+                                    }, 1000);
 
                                    } catch (error) {
                                        console.log(error)
@@ -67,6 +72,7 @@ export default{
 
 
                               axios.get("https://www.instagram.com/"+this.adslier.instagram+"?__a=1")
+
                          .then(res=>{
 
 
@@ -96,6 +102,12 @@ export default{
                                 }else{
 
                                 this.$auth.loginWith('local',{data:datos})
+
+                                setInterval(() => {
+                                    location.reload()
+                                    
+                                }, 1000);
+                                
 
                                 }
 
@@ -135,6 +147,12 @@ export default{
                                     }else{
 
                                         this.$auth.loginWith('local', { data: datos })
+
+                                        setInterval(() => {
+                                            location.reload()
+                                            
+                                        }, 1000);
+                                        
 
 
                                     }
